@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MD TRACK RDC</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>body{margin:0;font-family:Arial}#map{height:70vh}.h{background:#000;color:#fff;padding:12px;text-align:center;font-weight:bold}.p{background:gold;padding:10px;text-align:center;font-weight:bold}.btn{background:#25D366;color:#fff;display:block;padding:16px;text-align:center;text-decoration:none;font-weight:bold;font-size:18px}</style>
+</head>
+<body>
+<div class="h">🇨🇩 MD TRACK - GPS Congo - Lubumbashi | Kinshasa | Kolwezi</div>
+<div class="p">GPS Tracking $25/mois - WhatsApp 0817070456</div>
+<div id="map"></div>
+<a class="btn" href="https://wa.me/27817070456">💬 CONTACTER SUR WHATSAPP</a>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+var map=L.map('map').setView([-11.67,27.47],6);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+L.marker([-11.67,27.47]).addTo(map).bindPopup("Camion 001 - Lubumbashi - 65km/h");
+L.marker([-4.32,15.30]).addTo(map).bindPopup("Camion 002 - Kinshasa");
+</script>
+</body>
+</html>
