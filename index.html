@@ -1,1 +1,27 @@
-<!DOCTYPE html><html><head><meta name="viewport" content="width=device-width,initial-scale=1"><title>MD TRACK - 5 Trucks Dotted</title><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"><style>body{margin:0;font-family:Arial;background:#000;color:#fff}#map{height:75vh}.h{background:#000;color:#fff;padding:12px;text-align:center;font-weight:bold;border-bottom:3px solid gold}.p{background:gold;color:#000;padding:8px;text-align:center;font-weight:bold}.btn{background:#25D366;color:#fff;display:block;padding:15px;text-align:center;text-decoration:none;font-weight:bold;font-size:18px}</style></head><body><div class="h">🇨🇩 MD TRACK - 5 Trucks LIVE - Lubumbashi → Kolwezi - 330km</div><div class="p">🚛 5 Trucks En Route • Dotted Route Active • 42km/h Avg</div><div id="map"></div><a class="btn" href="https://wa.me/27817070456">💬 CONTACTER SUR WHATSAPP 0817070456</a><script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script><script>var map=L.map('map').setView([-10.9,26.5],7);L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);var route=[[-11.67,27.47],[-11.3,26.8],[-10.9,26.0],[-10.72,25.47]];L.polyline(route,{color:'white',weight:4,dashArray:'12,12',opacity:0.9}).addTo(map);L.marker([-11.67,27.47]).addTo(map).bindPopup("<b>LUBUMBASHI</b>");L.marker([-10.72,25.47]).addTo(map).bindPopup("<b>KOLWEZI</b>");var trucks=[{id:'TRK-008',pos:0.1,s:68},{id:'TRK-012',pos:0.3,s:45},{id:'TRK-015',pos:0.5,s:72},{id:'TRK-023',pos:0.65,s:55},{id:'TRK-031',pos:0.85,s:40}];var ms=trucks.map(t=>{let lat=route[0][0]+(route[3][0]-route[0][0])*t.pos,lng=route[0][1]+(route[3][1]-route[0][1])*t.pos;return L.marker([lat,lng],{icon:L.divIcon({html:'<div style="background:gold;color:#000;padding:3px 6px;border-radius:10px;font-weight:bold;font-size:11px;border:2px solid #000">'+t.id+'</div>',className:''})}).addTo(map).bindPopup(t.id+' - '+t.s+'km/h');});setInterval(()=>{ms.forEach((m,i)=>{trucks[i].pos+=0.003;if(trucks[i].pos>1)trucks[i].pos=0;let lat=route[0][0]+(route[3][0]-route[0][0])*trucks[i].pos,lng=route[0][1]+(route[3][1]-route[0][1])*trucks[i].pos;m.setLatLng([lat,lng]);});},120);</script></body></html>
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MD TRACK 5 Trucks</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>body{margin:0;font-family:Arial;background:#000;color:#fff}#map{height:80vh}.h{background:#000;padding:12px;text-align:center;font-weight:bold;border-bottom:3px solid gold}.p{background:gold;color:#000;padding:8px;text-align:center;font-weight:bold}.btn{background:#25D366;color:#fff;display:block;padding:15px;text-align:center;text-decoration:none;font-weight:bold}</style>
+</head>
+<body>
+<div class="h">🇨🇩 MD TRACK - 5 Trucks LIVE Lubumbashi → Kolwezi</div>
+<div class="p">5 Trucks • Dotted Route • 330km • TRK-008 to TRK-031</div>
+<div id="map"></div>
+<a class="btn" href="https://wa.me/27817070456">CONTACTER WHATSAPP</a>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+var map=L.map('map').setView([-10.9,26.5],7);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+var route=[[-11.67,27.47],[-11.3,26.8],[-10.9,26.0],[-10.72,25.47]];
+L.polyline(route,{color:'white',weight:4,dashArray:'12,12',opacity:0.9}).addTo(map);
+L.marker([-11.67,27.47]).addTo(map).bindPopup("LUBUMBASHI");
+L.marker([-10.72,25.47]).addTo(map).bindPopup("KOLWEZI");
+var trucks=[{id:'TRK-008',pos:0.1},{id:'TRK-012',pos:0.3},{id:'TRK-015',pos:0.5},{id:'TRK-023',pos:0.65},{id:'TRK-031',pos:0.85}];
+var ms=trucks.map(t=>{let lat=route[0][0]+(route[3][0]-route[0][0])*t.pos,lng=route[0][1]+(route[3][1]-route[0][1])*t.pos;return L.marker([lat,lng],{icon:L.divIcon({html:'<div style="background:gold;color:#000;padding:4px 8px;border-radius:12px;font-weight:bold;font-size:11px;border:2px solid #000">'+t.id+'</div>',className:''})}).addTo(map);});
+setInterval(()=>{ms.forEach((m,i)=>{trucks[i].pos+=0.003;if(trucks[i].pos>1)trucks[i].pos=0;let lat=route[0][0]+(route[3][0]-route[0][0])*trucks[i].pos,lng=route[0][1]+(route[3][1]-route[0][1])*trucks[i].pos;m.setLatLng([lat,lng]);});},120);
+</script>
+</body>
+</html>
